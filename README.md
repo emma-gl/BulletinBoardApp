@@ -1,2 +1,1 @@
-# BulletinBoardApp
-First experience using docker
+# cit262-emmalund-bb
