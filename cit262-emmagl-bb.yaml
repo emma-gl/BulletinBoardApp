@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cit262-emmagl-bb-deployment
+  namespace: default
+spec:
+  replicas: 1 
+  selector:
+    matchLabels:
+      app: bb-web
+  template:
+    metadata:
+      labels:
+        app: bb-web
+    spec:
+      containers:
+      - name: bb-site
+        image: emmagl/cit-emmagl-bb:sha-e2d8129
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: bwh-demo-bb-loadbalancer
+  namespace: default
+spec:
+  type: LoadBalancer
+  selector:
+    app: bb-web
+  ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 8080
