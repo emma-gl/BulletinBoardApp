@@ -1,0 +1,5 @@
+var api = require('../backend/api.js');
+
+test('fake test', () => {
+    expect("1").toBe('1');
+});
